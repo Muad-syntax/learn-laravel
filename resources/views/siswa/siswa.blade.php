@@ -18,10 +18,9 @@
     </div>
     <div class="siswa">
         <ol>
-            <li>Farel</li>
-            <li>Bagas</li>
-            <li>Zein</li>
-            <li>Muad</li>
+            @foreach ($dataSiswa as $siswa)
+                <li>{{$siswa}}</li>
+            @endforeach
         </ol>
     </div>
 </body>

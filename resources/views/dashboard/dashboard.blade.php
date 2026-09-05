@@ -16,6 +16,10 @@
             <li><a href="{{ url('/mapel') }}">Mapel</a></li>
         </ul>
         <h1>Ini Dashboard</h1>
+        <div class="saya">
+            <h2>Hallo Saya {{ $nama }}</h2>
+            <p>Saya berumur {{ $umur }} tahun, sekarang saya kelas {{ $kelas }} jurusan {{ $jurusan }}</p>
+        </div>
     </div>
 </body>
 </html>
