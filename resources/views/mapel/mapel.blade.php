@@ -8,11 +8,9 @@
 <body>
     <div class="navbar">
         <ul>
-            <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url('/') }}">Dashboard</a></li>
             <li><a href="{{ url('/login') }}">Login</a></li>
             <li><a href="{{ url('/register') }}">Register</a></li>
-            <li><a href="{{ url('/kelas') }}">Kelas</a></li>
-            <li><a href="{{ url('/siswa') }}">Siswa</a></li>
             <li><a href="{{ url('/mapel') }}">Mapel</a></li>
         </ul>
     </div>
