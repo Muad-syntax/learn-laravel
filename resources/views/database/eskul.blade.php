@@ -33,5 +33,14 @@
             @endforeach
         </table>
     </div>
+    <div class="form">
+        <form action="{{ url('/eskul/simpan') }}" method="POST">
+            @CSRF
+            <h4>Masukan Kelas</h4>
+            Nama: <input type="text" name="nama"><br>
+            Ketua: <input type="text" name="ketua"><br>
+            <button>Tambah</button>
+        </form>
+    </div>
 </body>
 </html>

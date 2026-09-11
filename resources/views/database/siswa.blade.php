@@ -20,14 +20,17 @@
         <h3>Tabel Siswa</h3>
         <table class="siswa" border="1">
             <tr>
+                
                 <th>id</th>
                 <th>nama</th>
                 <th>umur</th>
                 <th>id_kelas</th>
                 <th>id_eskul</th>
+                
             </tr>
             @foreach ($dataSiswa as $siswa)
                 <tr>
+                    
                     <td>{{$siswa -> id}}</td>
                     <td>{{$siswa -> nama}}</td>
                     <td>{{$siswa -> umur}}</td>
@@ -36,6 +39,16 @@
                 </tr>
             @endforeach
         </table>
+    </div>
+
+    <div class="form">
+        <form action="{{ url('/siswa/simpan') }}" method="POST">
+            @CSRF
+            <h4>Masukan Siswa</h4>
+            Nama: <input type="text" name="nama"><br>
+            Umur: <input type="text" name="umur"><br>
+            <button>Tambah</button>
+        </form>
     </div>
 </body>
 </html>

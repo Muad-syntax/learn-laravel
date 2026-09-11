@@ -11,4 +11,14 @@ class eskulController extends Controller
         $eskul = DB::table('eskul')->get();
         return view('database.eskul', ['eskul' => $eskul]);
     }
+    public function simpan(Request $req){
+        $nama = $req->nama;
+        $ketua = $req->ketua;
+
+        DB::table('eskul')->insert([
+            'nama' => $nama,
+            'ketua' => $ketua
+        ]);
+        return "Data Berhasil Disimpan!";
+    }
 }

@@ -35,5 +35,19 @@
             @endforeach
         </table>
     </div>
+    <div class="form">
+        <form action="{{ url('/spp/simpan') }}" method="POST">
+            @CSRF
+            <h4>Masukan Siswa</h4>
+            <label for="">Pilih siswa</label>
+            <select name="id_siswa" >
+                <option value="id_siswa">1</option>
+                <option value="id_siswa">2</option>
+            </select><br>
+            Nominal: <input type="text" name="nominal_pembayaran"><br>
+            tgl: <input type="text" name="tgl_bayar"><br>
+            <button>Tambah</button>
+        </form>
+    </div>
 </body>
 </html>

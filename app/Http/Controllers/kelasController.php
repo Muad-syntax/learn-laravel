@@ -11,4 +11,14 @@ class kelasController extends Controller
         $kelas = DB::table('kelas')->get();
         return view('database.kelas', ['kelas' => $kelas]);
     }
+    public function simpan(Request $req){
+        $kelas = $req->kelas;
+        $jurusan = $req->jurusan;
+
+        DB::table('kelas')->insert([
+            'kelas' => $kelas,
+            'jurusan' => $jurusan
+        ]);
+        return "Data Berhasil Disimpan!";
+    }
 }
