@@ -7,9 +7,17 @@ use Illuminate\Support\Facades\DB;
 class sppController extends Controller
 {
     public function spp(){
-        $spp = DB::table('spp')->get();
-        $id_siswa = DB::table('spp')->select('id_siswa');
-        return view('database.spp', ['spp' => $spp]);
+        // $spp = DB::table('spp')->get();
+        $siswa = DB::table('siswa')->get();
+        $dataSiswa = DB::table('spp')
+        ->join('siswa', 'spp.id_siswa', '=', 'siswa.id')
+        ->select('spp.id','siswa.nama as nama_siswa','spp.nominal_pembayaran as nominal', 'spp.tgl_bayar as tgl')
+        ->get();
+        return view('database.spp',[
+            'siswa' => $siswa,
+            'spp' => $dataSiswa
+        ]);
+        
     }
     public function simpan(Request $req){
         $id_siswa = $req->id_siswa;
@@ -18,6 +26,7 @@ class sppController extends Controller
 
         
         DB::table('spp')->insert([
+            'id_siswa' => $id_siswa,
             'nominal_pembayaran' => $nominal_bayar,
             'tgl_bayar' => $tgl_bayar
         ]);
