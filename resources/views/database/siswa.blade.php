@@ -24,8 +24,7 @@
                 <th>id</th>
                 <th>nama</th>
                 <th>umur</th>
-                <th>id_kelas</th>
-                <th>id_eskul</th>
+                <th>Aksi</th>
                 
             </tr>
             @foreach ($dataSiswa as $siswa)
@@ -34,19 +33,27 @@
                     <td>{{$siswa -> id}}</td>
                     <td>{{$siswa -> nama}}</td>
                     <td>{{$siswa -> umur}}</td>
-                    <td>{{$siswa -> id_kelas}}</td>
-                    <td>{{$siswa -> id_eskul}}</td>
+                    <td><a href='{{ url("/siswa/$siswa->id") }}'>Detail</a></td>
                 </tr>
             @endforeach
         </table>
     </div>
 
     <div class="form">
+        @if ($errors->any())
+            <div style="color:red;">
+                <ul type="none">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{ url('/siswa/simpan') }}" method="POST">
             @CSRF
             <h4>Masukan Siswa</h4>
-            Nama: <input type="text" name="nama"><br>
-            Umur: <input type="text" name="umur"><br>
+            Nama: <input type="text" name="nama" value="{{ old('nama') }}"><br>
+            Umur: <input type="text" name="umur" value="{{ old('umur') }}"><br>
             <button>Tambah</button>
         </form>
     </div>

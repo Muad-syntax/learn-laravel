@@ -36,19 +36,28 @@
         </table>
     </div>
     <div class="form">
+        @if ($errors->any())
+            <div style="color:red;">
+                <ul type="none">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{ url('/spp/simpan') }}" method="POST">
             @csrf
             <h4>Masukan Siswa</h4>
             <label for="">Pilih siswa</label>
             <select name="id_siswa" >
-                @foreach ($siswa as $siswa)
-                    <option value="{{$siswa -> id}}">{{ $siswa -> nama }}</option>
+                @foreach ($siswa as $item)
+                    <option value="{{$item -> id}}">{{ $item -> nama }}</option>
                     
                 @endforeach
                 
             </select><br> 
             Nominal: <input type="text" name="nominal_pembayaran"><br>
-            tgl: <input type="text" name="tgl_bayar"><br>
+            tgl: <input type="date" name="tgl_bayar"><br>
             <button>Tambah</button>
         </form>
     </div>

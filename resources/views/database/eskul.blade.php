@@ -24,17 +24,26 @@
                 <th>nama</th>
                 <th>ketua</th>
             </tr>
-            @foreach ($eskul as $eskul)
+            @foreach ($eskul as $item)
                 <tr>
-                    <td>{{$eskul -> id}}</td>
-                    <td>{{$eskul -> nama}}</td>
-                    <td>{{$eskul -> ketua}}</td>
+                    <td>{{$item -> id}}</td>
+                    <td>{{$item -> nama}}</td>
+                    <td>{{$item -> ketua}}</td>
                 </tr>
             @endforeach
         </table>
     </div>
     <div class="form">
         <form action="{{ url('/eskul/simpan') }}" method="POST">
+            @if ($errors->any())
+                <div style="color:red;">
+                    <ul type="none">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             @CSRF
             <h4>Masukan Kelas</h4>
             Nama: <input type="text" name="nama"><br>

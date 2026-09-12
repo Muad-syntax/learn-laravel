@@ -19,6 +19,7 @@ Route::get('/kelas', [kelasController::class, "kelas"]);
 Route::post('/kelas/simpan', [kelasController::class, "simpan"]);
 Route::get('/mapel', [mapelController::class, "mapel"]);
 Route::get('/siswa', [siswaController::class, "siswa"]);
+Route::get('/siswa/{id}', [siswaController::class, "show"]);
 Route::post('/siswa/simpan', [siswaController::class, "simpan"]);
 Route::get('/database', [databaseController::class, "index"]);
 Route::get('/eskul', [eskulController::class, "eskul"]);

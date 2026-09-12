@@ -16,7 +16,15 @@ class siswaController extends Controller
             'dataSiswa' => $dataSiswa
         ]);
     }
+    public function show($id){
+        $siswa = DB::table('siswa')->where('id',$id)->first();
+        return view('show', compact('siswa'));
+    }
     public function simpan(Request $req){
+        $validated = $req->validate([
+            'nama' => ['required', 'unique:siswa', 'max:255'],
+            'umur' => ['required', 'integer']
+        ]);
         $nama = $req->nama;
         $umur = $req->umur;
 
@@ -24,6 +32,6 @@ class siswaController extends Controller
             'nama' => $nama,
             'umur' => $umur
         ]);
-        return "Data Berhasil Disimpan!";
+        return redirect()->back();
     }
 }

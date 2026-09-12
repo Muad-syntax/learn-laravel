@@ -21,10 +21,10 @@
                 <th>Nama</th>
                 <th>Umur</th>
             </tr>
-            @foreach ($siswa as $siswa)
+            @foreach ($siswa as $item)
                 <tr>
-                    <td>{{$siswa -> nama}}</td>
-                    <td>{{$siswa -> umur}}</td>
+                    <td>{{$item -> nama}}</td>
+                    <td>{{$item -> umur}}</td>
                 </tr>
             @endforeach
         </table>

@@ -12,6 +12,10 @@ class kelasController extends Controller
         return view('database.kelas', ['kelas' => $kelas]);
     }
     public function simpan(Request $req){
+        $validated = $req->validate([
+            'kelas' => ['required'],
+            'jurusan' => ['required']
+        ]);
         $kelas = $req->kelas;
         $jurusan = $req->jurusan;
 

@@ -24,17 +24,26 @@
                 <th>kelas</th>
                 <th>jurusan</th>
             </tr>
-            @foreach ($kelas as $kelas)
+            @foreach ($kelas as $item)
                 <tr>
-                    <td>{{$kelas -> id}}</td>
-                    <td>{{$kelas -> kelas}}</td>
-                    <td>{{$kelas -> jurusan}}</td>
+                    <td>{{$item -> id}}</td>
+                    <td>{{$item -> kelas}}</td>
+                    <td>{{$item -> jurusan}}</td>
                 </tr>
             @endforeach
         </table>
     </div>
     <div class="form">
         <form action="{{ url('/kelas/simpan') }}" method="POST">
+            @if ($errors->any())
+                <div style="color:red;">
+                    <ul type="none">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             @CSRF
             <h4>Masukan Kelas</h4>
             Kelas: <input type="text" name="kelas"><br>

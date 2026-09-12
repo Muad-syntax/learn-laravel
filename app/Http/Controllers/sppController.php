@@ -20,6 +20,10 @@ class sppController extends Controller
         
     }
     public function simpan(Request $req){
+        $validated = $req->validate([
+            'nominal_pembayaran' => ['required', 'integer'],
+            'tgl_bayar' => ['required']
+        ]);
         $id_siswa = $req->id_siswa;
         $nominal_bayar = $req->nominal_pembayaran;
         $tgl_bayar = $req->tgl_bayar;
@@ -30,6 +34,6 @@ class sppController extends Controller
             'nominal_pembayaran' => $nominal_bayar,
             'tgl_bayar' => $tgl_bayar
         ]);
-        return "Data Berhasil Disimpan!";
+        return redirect()->back();
     }
 }
