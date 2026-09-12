@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class registerController extends Controller
 {
     public function register(){
-        return view('register.register');
+        return view('auth.register');
     }
 }

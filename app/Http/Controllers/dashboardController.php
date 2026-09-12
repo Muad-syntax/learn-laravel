@@ -17,7 +17,7 @@ class dashboardController extends Controller
         //     'jurusan' => $jurusan,
         //     'umur' => $umur
         // ]);
-        return view('dashboard.dashboard', compact(
+        return view('dashboard', compact(
             'nama',
             'kelas',
             'jurusan',

@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class mapelController extends Controller
 {
     public function mapel(){
-        return view('mapel.mapel');
+        return view('mapel');
     }
 }
